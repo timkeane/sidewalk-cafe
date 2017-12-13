@@ -10,7 +10,10 @@ nyc.zoning = {
     return nyc.zoning.source;
   },
   layer: function(){
-    return new ol.layer.Vector({source: nyc.zoning.source()});
+    return new ol.layer.Vector({
+      source: nyc.zoning.source(),
+      maxResolution: nyc.ol.TILE_GRID.getResolution(13)
+    });
   },
   loader: function(extent, resolution, projection){
     var url = nyc.zoning.ESRI_URL +
